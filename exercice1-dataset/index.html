@@ -1,0 +1,84 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colored KeyBoard</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        button {
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            color: #fff;
+            border: 0;
+            background: navy;
+            transition:all 0.2s;
+        }
+
+        button.is-active {
+            color: #000;
+            background: pink;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.8) inset;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- BUTTON && dataset-->
+    <button data-code="65">A</button>
+    <button data-code="66">B</button>
+    <button data-code="67">C</button>
+    <button data-code="68">D</button>
+    <button data-code="69">E</button>
+    <button data-code="70">F</button>
+    <button data-code="71">G</button>
+    <button data-code="72">H</button>
+    <button data-code="73">I</button>
+    <button data-code="74">J</button>
+    <button data-code="75">K</button>
+    <button data-code="76">L</button>
+    <button data-code="77">M</button>
+    <button data-code="78">N</button>
+    <button data-code="79">O</button>
+    <button data-code="80">P</button>
+    <button data-code="81">Q</button>
+    <button data-code="82">R</button>
+    <button data-code="83">S</button>
+    <button data-code="84">T</button>
+    <button data-code="85">U</button>
+    <button data-code="86">V</button>
+    <button data-code="87">W</button>
+    <button data-code="88">X</button>
+    <button data-code="89">Y</button>
+    <button data-code="90">Z</button>
+</body>
+<!-- SCRIPT HERE -->
+<script>var button =document.querySelectorAll('button');
+window.addEventListener("keydown",function(e)
+{
+  var button = document.querySelectorAll('button');
+  var value= e.which;
+  for(var i=0;i<button.length;i++)
+    {
+      if(button[i].dataset.code == value){
+        button[i].classList.add('is-active');
+      }
+      }
+    });
+window.addEventListener("keyup",function(e)
+{
+  var button = document.querySelectorAll('button');
+  var value= e.which;
+  for(var i=0;i<button.length;i++)
+    {
+      if(button[i].dataset.code == value){
+        button[i].classList.remove('is-active');
+      }
+      }
+    });</script>
+</html>
