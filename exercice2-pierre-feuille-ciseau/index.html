@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+  <title>pierre feuille ciseau</title>
+</head>
+<style>
+a{
+  font-size:30px;
+  color:white;
+}
+video{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index:-1;
+}
+h1
+{
+  color:white;
+  text-align:center;
+    font-family: 'Cookie', cursive;
+    font-size:36px;
+    margin:0;
+}
+.cardContainer
+{
+  width:70%;
+  margin:0 auto;
+  height:700px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.card
+{
+  width:250px;
+  height:500px;
+  cursor:Pointer;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  position: relative;
+perspective: 800px;
+}
+.cardItem
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius:15px;
+
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+figure {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.front {
+  background:url('card.jpg') repeat;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+.back {
+  background: white;
+  border-radius:15px;
+  justify-content:center;
+  align-items:center;
+  transform: rotateY( 180deg );
+}
+.result
+{
+  color:black;
+}
+.flipped {
+  transform: rotateY( 180deg );
+}
+h2{
+  color:white;
+  font-size:30px;
+  text-align:center;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  video {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  video {
+    width: auto;
+    height: 100%;
+  }
+}
+</style>
+<body>
+    <video src="bg.mp4" loop autoplay>
+    </video>
+  <h1>Pierre Feuille Ciseaux</h1>
+  <div class="cardContainer">
+<div data-type="pierre" class="card">
+  <div class="cardItem">
+    <figure class="front"><h2>PIERRE</h2></figure>
+    <figure class="back"><h2 class="result"></h2></figure>
+  </div>
+</div>
+<div data-type="feuille" class="card">
+  <div class="cardItem">
+    <figure class="front"><h2>FEUILLE</h2></figure>
+    <figure class="back"><h2 class="result"></h2></figure>
+  </div>
+</div>
+<div data-type="ciseaux" class="card">
+  <div class="cardItem">
+    <figure class="front"><h2>Ciseaux</h2></figure>
+    <figure class="back"><h2 class="result">5</h2></figure>
+  </div>
+</div>
+</div>
+</div>
+<h2 class="result"></h2>
+<a href="https://www.freepik.com/free-vector/flower-seamless-pattern-background_1534531.htm">Designed by Freepik</a>
+
+</body>
+<script src="script.js"></script>
+</html>
