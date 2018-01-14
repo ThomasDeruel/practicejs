@@ -1,0 +1,132 @@
+a{
+  font-size:30px;
+  color:white;
+}
+video{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index:-1;
+}
+h1
+{
+  color:white;
+  text-align:center;
+    font-family: 'Cookie', cursive;
+    font-size:36px;
+    margin:0;
+}
+.cardContainer
+{
+  width:80%;
+  margin:0 auto 0 20%;
+  height:700px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.card
+{
+  width:250px;
+  height:500px;
+  cursor:Pointer;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  position: relative;
+perspective: 800px;
+}
+.cardItem
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius:15px;
+
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(.08,.89,.31,.97);
+}
+figure {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.front {
+  background:url('img/card.jpg') repeat;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+.back {
+  background: white;
+  border-radius:15px;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  transform: rotateY( 180deg );
+}
+.result
+{
+  color:black;
+}
+.flipped {
+  transform: rotateY( 180deg );
+}
+h2{
+  color:white;
+  font-size:30px;
+  text-align:center;
+}
+
+.score
+{
+  min-width:20%;
+  max-width:22%;
+  font-family: Arial, Helvetica, sans-serif;
+  height:100%;
+  background:white;
+  position:fixed;
+  margin:0;
+  padding:0;
+  top:0;
+  left:0;
+  box-shadow:10px 0 10px rgb(0,0,0,0.5);
+}
+.rule
+{
+  margin:0 12px 0 12px;
+  font-size:18px;
+}
+.img{
+  background:white;
+  padding:20px;
+  width:100px;
+  height:100px;
+  border-radius:50px;
+
+}
+@media (min-aspect-ratio: 16/9) {
+  video {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  video {
+    width: auto;
+    height: 100%;
+  }
+}
+.bold
+{
+  font-weight:bolder;
+  font-size:24px;
+}

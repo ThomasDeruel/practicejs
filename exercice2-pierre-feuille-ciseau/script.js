@@ -4,44 +4,45 @@ var result=document.querySelectorAll('.result');
 var flipped = document.querySelectorAll('.cardItem');
 var win =0;
 var loose =0;
-var bg ={pierre:"<img class='img'src='pierre.png' alt='pierre' >",
-        feuille:"<img class='img'src='feuille.png' alt='feuille' >",
-        ciseaux:"<img class='img'src='ciseaux.png' alt='ciseaux' >"}
+var bg ={rock:"<img class='img'src='img/rock.png' alt='rock' >",
+        paper:"<img class='img'src='img/paper.png' alt='paper' >",
+        scissors:"<img class='img'src='img/scissors.png' alt='scissors' >"}
 var text = {win:"<h2 class='result'>Gagné</h2>",
            loose:"<h2 class='result'>Perdu</h2>"}
-var pierre = document.querySelector('.pierre');
-var feuille = document.querySelector('.feuille');
-var ciseaux = document.querySelector('.ciseaux');
+var rock = document.querySelector('.rock');
+var paper = document.querySelector('.paper');
+var scissors = document.querySelector('.scissors');
 
 for (let i= 0; i < cards.length; i++) {
 
   cards[i].addEventListener('click',function(){
     flipped[i].classList.add('flipped');
     var rand = Math.floor(Math.random()*3)+1;
-    if(rand ===1 ){value = "pierre";}
-    else if(rand ===2){value = "feuille";}
-    else {value="ciseaux";}
+    if(rand ===1 ){value = "rock";}
+    else if(rand ===2){value = "paper";}
+    else {value="scissors";}
   });
   }
-  pierre.addEventListener('click',function(){
-    if(value == pierre.dataset.type)
+  rock.addEventListener('click',function(){
+
+    if(value == rock.dataset.type)
     { result[0].innerHTML = "Egalité";}
-    else if(value == 'feuille'){result[0].innerHTML = text.loose + bg.feuille;loose++;}
-    else{result[0].innerHTML = text.win+bg.ciseaux;win++;}
+    else if(value == 'paper'){result[0].innerHTML = text.loose + bg.paper;loose++;}
+    else{result[0].innerHTML = text.win+bg.scissors;win++;}
   });
 
-  feuille.addEventListener('click',function(){
-    if(value == feuille.dataset.type)
+  paper.addEventListener('click',function(){
+    if(value == paper.dataset.type)
     { result[1].innerHTML = "Egalité";}
-    else if(value == 'ciseaux'){result[1].innerHTML = text.loose + bg.ciseaux;loose++;}
-    else{result[1].innerHTML = text.win+bg.pierre;win++;}
+    else if(value == 'scissors'){result[1].innerHTML = text.loose + bg.scissors;loose++;}
+    else{result[1].innerHTML = text.win+bg.rock;win++;}
   });
-  ciseaux.addEventListener('click',function(){
+  scissors.addEventListener('click',function(){
 
-    if(value == ciseaux.dataset.type)
+    if(value == scissors.dataset.type)
     { result[2].innerHTML = "Egalité";}
-    else if(value == 'pierre'){result[2].innerHTML = text.loose + bg.pierre;loose++;}
-    else{result[2].innerHTML = text.win+bg.feuille; win++;}
+    else if(value == 'rock'){result[2].innerHTML = text.loose + bg.rock;loose++;}
+    else{result[2].innerHTML = text.win+bg.paper; win++;}
   });
 
 
@@ -49,13 +50,17 @@ for (let i= 0; i < cards.length; i++) {
 for (let j = 0; j < flipped.length; j++) {
   flipped[j].addEventListener("transitionend", function() {
   flipped[j].classList.remove('flipped');
-  if(win<5 || loose<5)
+  if(win<5)
   {
   document.querySelector('.player').innerHTML = "Vous: " + win+"/5";
-  document.querySelector('.ia').innerHTML = "IA: " +loose+"/5" ;
   }
-  else{  document.querySelector('.player').innerHTML = "Vous: 5/5";
-    document.querySelector('.ia').innerHTML = "IA: 5/5" ;}
+  else{document.querySelector('.player').innerHTML = "Vous: 5/5";}
+
+   if (loose<5){
+    document.querySelector('.ia').innerHTML = "IA: " +loose+"/5" ;
+  }
+  else{document.querySelector('.ia').innerHTML = "IA: 5/5" ;}
+
 
 })
 }
