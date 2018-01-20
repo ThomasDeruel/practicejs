@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <style>
+        .boxes {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .boxes div {
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            margin: 10px;
+            line-height: 150px;
+            font-size: 24px;
+            text-align: center;
+            color: purple;
+        }
+
+        .box.mobile {
+            background: pink;
+        }
+
+        .box.desktop {
+            background: yellow;
+        }
+
+        .box.icon {
+            background: #f12d99;
+        }
+
+        .box.tablet {
+            background: #19b2c3;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-all">All</button>
+    <button  data-category='mobile' class="btn-filter">Mobile</button>
+    <button data-category="icon"class="btn-filter">Icon</button>
+    <button data-category='desktop'class="btn-filter">Desktop</button>
+    <button data-category='tablet'class="btn-filter">Tablet</button>
+
+    <div class="boxes">
+        <div data-category='mobile' class="box mobile">mobile 1</div>
+        <div data-category='tablet' class="box tablet">tablet 3</div>
+        <div data-category='desktop' class="box desktop">desktop 6</div>
+        <div data-category='mobile' class="box mobile">mobile 2</div>
+        <div data-category="tablet" class="box tablet">tablet 5</div>
+        <div data-category="desktop" class="box desktop">desktop 1</div>
+        <div data-category="mobile" class="box mobile">mobile 6</div>
+        <div data-category="desktop" class="box desktop">desktop 8</div>
+        <div data-category="tablet" class="box tablet">tablet 4</div>
+        <div data-category="mobile" class="box mobile">mobile 5</div>
+        <div data-category="desktop" class="box desktop">desktop 2</div>
+        <div data-category="desktop" class="box desktop">desktop 7</div>
+        <div data-category="mobile" class="box mobile">mobile 4</div>
+        <div data-category="desktop" class="box desktop">desktop 9</div>
+        <div data-category="icon" class="box icon">icon 2</div>
+        <div data-category="desktop" class="box desktop">desktop 10</div>
+        <div data-category="icon" class="box icon">icon 1</div>
+        <div data-category="desktop" class="box desktop">desktop 3</div>
+        <div data-category="icon" class="box icon">icon 3</div>
+        <div data-category="tablet" class="box tablet">tablet 1</div>
+        <div data-category="desktop" class="box desktop">desktop 5</div>
+        <div data-category="tablet" class="box tablet">tablet 2</div>
+        <div data-category="desktop" class="box desktop">desktop 4</div>
+        <div data-category="icon" class="box icon">icon 4</div>
+        <div data-category="mobile" class="box mobile">mobile 3</div>
+    </div>
+
+
+    <script>
+        var btns = document.querySelectorAll('.btn-filter');
+        var btn_all = document.querySelector('.btn-all');
+        var boxes = document.querySelectorAll('.box');
+
+        btn_all.addEventListener('click', function() {
+            for (var a = 0; a < boxes.length; a++) {
+                boxes[a].style.display = '';
+            }
+        });
+
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function() {
+                for (let a = 0; a < boxes.length; a++) {
+                      if (this.dataset.category === boxes[a].dataset.category) {
+                          boxes[a].style.display = 'block';
+
+                      } else {
+                          boxes[a].style.display = 'none';
+
+                      }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

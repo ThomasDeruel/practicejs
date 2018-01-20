@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <style>
+        .boxes {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .boxes div {
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            margin: 10px;
+            line-height: 150px;
+            font-size: 24px;
+            text-align: center;
+            color: purple;
+        }
+
+        .box.mobile {
+            background: pink;
+        }
+
+        .box.desktop {
+            background: yellow;
+        }
+
+        .box.icon {
+            background: #f12d99;
+        }
+
+        .box.tablet {
+            background: #19b2c3;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-all">All</button>
+    <button class="btn-filter">Mobile</button>
+    <button class="btn-filter">Icon</button>
+    <button class="btn-filter">Desktop</button>
+    <button class="btn-filter">Tablet</button>
+
+    <div class="boxes">
+        <div class="box mobile">mobile 1</div>
+        <div class="box tablet">tablet 3</div>
+        <div class="box desktop">desktop 6</div>
+        <div class="box mobile">mobile 2</div>
+        <div class="box tablet">tablet 5</div>
+        <div class="box desktop">desktop 1</div>
+        <div class="box mobile">mobile 6</div>
+        <div class="box desktop">desktop 8</div>
+        <div class="box tablet">tablet 4</div>
+        <div class="box mobile">mobile 5</div>
+        <div class="box desktop">desktop 2</div>
+        <div class="box desktop">desktop 7</div>
+        <div class="box mobile">mobile 4</div>
+        <div class="box desktop">desktop 9</div>
+        <div class="box icon">icon 2</div>
+        <div class="box desktop">desktop 10</div>
+        <div class="box icon">icon 1</div>
+        <div class="box desktop">desktop 3</div>
+        <div class="box icon">icon 3</div>
+        <div class="box tablet">tablet 1</div>
+        <div class="box desktop">desktop 5</div>
+        <div class="box tablet">tablet 2</div>
+        <div class="box desktop">desktop 4</div>
+        <div class="box icon">icon 4</div>
+        <div class="box mobile">mobile 3</div>
+    </div>
+
+
+    <script>
+var all = document.querySelector('.btn-all')
+var btn = document.querySelectorAll('.btn-filter')
+var box = document.querySelectorAll('.box')
+var mobile = document.querySelectorAll(".mobile")
+var table= document.querySelectorAll(".table")
+var desktop= document.querySelector(".desktop")
+
+btn[0].addEventListener('click',function(){
+
+  for(var i=0;i<box.length;i++){
+    if(!box[i].classList.contains('mobile')){
+  box[i].style.display='none';
+    }else{box[i].style.display='';}
+  }
+})
+
+btn[1].addEventListener('click',function(){
+
+  for(var i=0;i<box.length;i++){
+    if(!box[i].classList.contains('icon')){
+  box[i].style.display='none';
+    }else{box[i].style.display='';}
+  }
+})
+
+btn[2].addEventListener('click',function(){
+
+  for(var i=0;i<box.length;i++){
+    if(!box[i].classList.contains('desktop')){
+  box[i].style.display='none';
+    }else{box[i].style.display='';}
+  }
+})
+
+btn[3].addEventListener('click',function(){
+
+  for(var i=0;i<box.length;i++){
+    if(!box[i].classList.contains('tablet')){
+  box[i].style.display='none';
+    }else{box[i].style.display='';}
+  }
+})
+all.addEventListener('click',function(){
+   for(var i=0;i<box.length;i++){
+     box[i].style.display=""
+   }
+})
+    </script>
+</body>
+</html>
