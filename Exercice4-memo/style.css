@@ -69,7 +69,6 @@ input,select{vertical-align:middle}
     background: red;
     transform: rotateY(180deg);
 }
-
 .verso {
     background: navy;
 }
